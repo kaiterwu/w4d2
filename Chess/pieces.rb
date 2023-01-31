@@ -11,12 +11,14 @@ class Pieces
     end 
 
     def empty?
+       return true  if self.board(@position).is_a?(NullPiece)
     end 
 
     def valid_moves
     end 
 
     def pos = (val)
+        pos = [val[0],val[-1]]
     end 
 
     def symbol 
