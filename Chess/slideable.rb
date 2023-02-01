@@ -15,7 +15,7 @@ module Slideable
                 until !self.board[new_pos].is_a?(NullPiece) || new_pos.any? { |idx| idx < 1 || idx > 6 }
                 current_x ,current_y = new_pos 
                 new_pos = [current_x + x, current_y + y]
-                possible_moves << new_pos unless !self.board[new_pos].is_a?(NullPiece)
+                possible_moves << new_pos unless  self.board[new_pos].color == self.color 
                 end 
         end     
         possible_moves
