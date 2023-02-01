@@ -1,5 +1,5 @@
 class Pieces
-
+    attr_reader :position, :color, :board 
     def initialize(color,board,position)
         @color = color 
         @board = board 
@@ -11,7 +11,7 @@ class Pieces
     end 
 
     def empty?
-       return true  if self.board(@position).is_a?(NullPiece)
+       return true  if self.board[self.position].is_a?(NullPiece)
     end 
 
     def valid_moves

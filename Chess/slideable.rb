@@ -1,31 +1,31 @@
 module Slideable 
-    def horizontal_dirs(pos)
-        (-7..7).each do |i| 
-           HORIZONTAL_DIRS << [pos[0]+ i,pos[-1]]
-          HORIZONTAL_DIRS<< [pos[0],pos[-1]+i]
-        end 
-        HORIZONTAL_DIRS.select! do |pos|
-            pos.all?{|index|index.between?(0,7)}
-        end 
+    def horizontal_dirs
+        HORIZONTAL_DIRS
     end 
 
-    def diagonal_dirs(pos) 
-        moves = [] 
-        (-7..7).each do |i|
-            (-7..7).each do |j|
-                moves << [i,j] if i.abs == j.abs
+    def diagonal_dirs
+       DIAGONAL_DIRS
+    end 
+
+    def moves
+        current_x , current_y = self.position 
+        possible_moves = [] 
+        #while loop, two conditions, not empty, and within bounds of board 
+        move_dirs.each do |(x,y)|
+            new_pos = []
+            until self.board[new_pos].is_a?(Nullpiece) || !new_pos.any? { |idx| idx < 0 || idx > 7 }
+            new_pos = [current_x + x, current_y + y]
+            possible_moves << new_pos 
             end 
         end 
-        pos_moves = moves.map do |move|
-            [pos[0]+move[0],pos[-1]+move[-1]]
-        end 
-        pos_moves.each do |move| 
-            DIAGONAL_DIRS << move if move.all?{|index|index.between?(0,7)}
-        end 
 
+    end 
+
+    def move_dirs 
+      
     end 
 
 private 
-    HORIZONTAL_DIRS = [] 
-    DIAGONAL_DIRS = [] 
+    HORIZONTAL_DIRS = [[0,1],[0,-1],[1,0],[-1,0]].freeze
+    DIAGONAL_DIRS = [[1,1],[-1,-1],[-1,1],[1,-1]].freeze 
 end 
