@@ -1,4 +1,5 @@
-require_relative "piece_class","null_piece"
+require_relative "./Pieces/piece_class.rb"
+require_relative "./Pieces/null_piece.rb"
 class Board
 
     def self.print_grid (grid)
