@@ -29,6 +29,3 @@ private
     HORIZONTAL_DIRS = [] 
     DIAGONAL_DIRS = [] 
 end 
-
-module Stepable 
-end 

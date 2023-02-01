@@ -1,5 +1,4 @@
-require_relative "pieces"
-
+require_relative "piece_class","null_piece"
 class Board
 
     def self.print_grid (grid)
@@ -43,6 +42,20 @@ class Board
         end 
         return new_grid 
     end 
+
+    def [](pos)
+        row, col = pos
+        @grid[row][col]
+      end
+    
+      def []=(pos, val)
+        row, col = pos
+        @grid[row][col] = val
+      end
+    
+      def add_piece(pos, piece)
+        @grid[pos] = piece
+      end
     def print
         Board.print_grid(self.new_board)
     end 

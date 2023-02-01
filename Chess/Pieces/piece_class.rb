@@ -30,6 +30,3 @@ class Pieces
 
 end
 
-class NullPiece < Pieces
-
-end
