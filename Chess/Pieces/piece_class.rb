@@ -1,9 +1,9 @@
 class Pieces
     attr_reader :position, :color, :board 
-    def initialize(color,board,position)
-        @color = color 
-        @board = board 
-        @position = position 
+    def initialize#(color,board,position)
+        # @color = color 
+        # @board = board 
+        # @position = position 
 
     end
 
@@ -17,8 +17,8 @@ class Pieces
     def valid_moves
     end 
 
-    def pos = (val)
-        pos = [val[0],val[-1]]
+    def pos=(val)
+        self.position = [val[0],val[-1]]
     end 
 
     def symbol 
@@ -29,4 +29,3 @@ class Pieces
     end 
 
 end
-
