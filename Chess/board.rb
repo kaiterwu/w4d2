@@ -12,7 +12,7 @@ class Board
         @grid = Array.new(8) { Array.new(8) }
         @grid.each_index do |i|
             if i.between?(2,5)
-                @grid[i].map! { |ele| NullPiece.new }
+                @grid[i].map! { |ele| NullPiece.instance }
             else
                 @grid[i].map! { |ele| Pieces.new }
             end
@@ -27,7 +27,7 @@ class Board
             raise "Not valid position" 
         end
         @grid[end_pos[0]][end_pos[-1]] = piece
-        @grid[start_pos[0]][start_pos[-1]] = NullPiece.new
+        @grid[start_pos[0]][start_pos[-1]] = NullPiece.instance
     end
 
     def new_board 
